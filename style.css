@@ -26,6 +26,23 @@ a, .btn {
     transition: all 300ms ease;
 }
 
+.btn:hover {
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.btn-color-1:hover {
+    background: black;
+    color: white;
+}
+
+.btn-color-2:hover {
+    background: rgb(53, 53, 53);
+    color: white;
+    border-color: white;
+}
+
 /* Desktop navbar styling */
 
 nav, .nav-links {
@@ -153,6 +170,14 @@ section {
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
   
 .section-container {
@@ -261,21 +286,47 @@ section {
     gap: 1rem;
 }
 
+#back-to-top {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgb(53, 53, 53);
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+
 /* About section styling */
 
 #about {
     position: relative;
+    padding: 4rem 0;
 }
 
 .about-containers {
     gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .about-details-container {
     justify-content: center;
     flex-direction: column;
+    flex: 2;
+    gap: 2rem; 
 }
 
 .about-containers,
@@ -301,6 +352,13 @@ section {
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     text-align: center;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.details-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .section-container {
@@ -320,6 +378,17 @@ section {
     position: relative;
 }
 
+#skills .skills-details-container {
+    padding: 0 1rem; /* Adjust the padding as needed */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Ensure the container doesn't exceed a certain width */
+}
+
+#skills .about-containers {
+    gap: 1rem; /* Adjust the gap between containers */
+    padding: 0 1rem; /* Adjust the padding as needed */
+}
+
 .skills-sub-title{
     color: rgb(85, 85, 85);
     font-weight: 600;
@@ -331,26 +400,43 @@ section {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 2rem auto;
+    max-width: 1200px;
 }
 
 .article-container {
     display: flex;
-    text-align: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2.5rem;
-    justify-content: space-around;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 0 1rem;
 }
 
 article {
+    width: 100%;
     display: flex;
-    width: 10rem;
-    justify-content: space-around;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 article.icon {
     cursor: default;
+}
+
+article div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+article h3 {
+    color: #333;
+    font-size: 1.1rem;
+}
+
+article p {
+    color: #666;
+    font-size: 0.9rem;
 }
 
 /* Projects section styling */
@@ -358,6 +444,22 @@ article.icon {
 #projects {
     position: relative;
 }
+
+#projects .about-containers {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 1rem; /* Adjust the gap between items */
+    justify-content: center; /* Center the items */
+    padding: 0 1rem; /* Adjust the padding as needed */
+}
+
+#projects .details-container {
+    flex: 1 1 calc(26% - 2rem); /* Adjust the width of each project container */
+    max-width: calc(33.333% - 2rem); /* Ensure the container doesn't exceed a certain width */
+    margin: 1rem; /* Adjust the margin as needed */
+}
+
+
 
 .color-container{
     border-color: rgb(163, 163, 163);
@@ -378,6 +480,14 @@ article.icon {
 .project-btn{
     color: black;
     border-color: rgb(163, 163, 163);
+}
+
+.project-description {
+    color: rgb(85, 85, 85);
+    font-size: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+    line-height: 1.5;
 }
 
 /* Contact section styling */
@@ -430,4 +540,7 @@ footer {
 footer p{
     text-align: center;
 }
-  
+
+
+
+

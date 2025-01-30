@@ -43,6 +43,16 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .about-containers {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-container {
+        padding: 0;
+    }
+}
+
 @media screen and (max-width:600px) {
     #contact, footer {
         height: 40vh;
