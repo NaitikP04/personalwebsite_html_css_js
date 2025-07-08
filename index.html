@@ -3,430 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Naitik Poddar - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
 </head>
 <body>
-    <nav id="desktop-nav" >
-        <div class = "logo">Naitik Poddar</div>
-        <div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Naitik Poddar</div>
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills and Experience</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-    <nav id="hamburger-nav">
-        <div class = "logo">Naitik Poddar</div>
-        <div class = "hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="hamburger-links">
-                    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                    <li><a href="#skills" onclick="toggleMenu()">Skills and Experience</a></li>
-                    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-    </nav>
-    <section id="hero">
-        <div class="section-container">
-            <div class="section__pic-container">
-                    <img src="./assets/NaitikPFP.png" alt="Naitik Poddar Profile Picture">
-            </div>
-            <div class="section__text">
-                <p class = "section__text__p1">Hello I'm</p>
-                <h1 class="title">Naitik Poddar</h1>
-                <p class="section__text__p2"><span class="highlight">Computer Science: Game Design</span> and <span class="highlight">Economics</span> student</p>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Naitik Poddar</h1>
+                <p class="hero-subtitle">B.S. Computer Science: Game Design & B.A. Economics Graduate</p>
+                <p class="hero-description">
+                    I'm a recent UC Santa Cruz graduate with dual degrees in Computer Science: Game Design and Economics, passionate about creating engaging interactive experiences and innovative software solutions.
+                </p>
+                <p class="hero-description">
+                    Whether developing multiplayer game systems, conducting research in procedural content generation and AI, or exploring economics research, 
+                    I'm driven to build meaningful technology that impacts communities at the intersection of creativity, analytical thinking, and cutting-edge innovation.
+                </p>
+                <div class="project-filter-buttons">
+                    <button class="filter-btn active" onclick="showAllProjects()">All Projects</button>
+                    <button class="filter-btn" onclick="filterProjects('tech')">Tech & Games</button>
+                    <button class="filter-btn" onclick="filterProjects('economics')">Economics & Data</button>
+                </div>
                 <div class="btn-container">
-                    <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')">View Resume</button>
-                    <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+                    <a href="./assets/resume.pdf" class="btn btn-primary" target="_blank">View Resume</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
-                <div id="social-container">
-                    <img src="./assets/linkedin.png" alt="My linkedin profile" class="icon" onclick="location.href='https://www.linkedin.com/in/naitikpoddar/'">
-                    <img src="./assets/github.png" alt="My github profile" class="icon" onclick="location.href='https://github.com/NaitikP04'">
+            </div>
+            <div class="hero-image">
+                <img src="./assets/about-pic.png" alt="Naitik Poddar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjE0MCIgZmlsbD0iIzRhOTBlMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+TlA8L3RleHQ+PC9zdmc+'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlighted Work Section -->
+    <section id="work" class="highlighted-work">
+        <div class="highlight-badge">Featured Work Experience</div>
+        <div class="highlight-content">
+            <div class="highlight-text">
+                <h2>Tacit</h2>
+                <div class="company">Software Developer at Goyangi Games</div>
+                <p>Currently shipping core online multiplayer systems for Tacit, a 4-player action RPG targeting Steam Q4 2025. Built using Unreal Engine 5, C++, and the Gameplay Ability System with focus on low-latency networking and scalable architecture.</p>
+                <p>Architected replication pipeline that reduced average roundtrip lag by 22% and implemented a real-time spellcasting framework supporting 30+ unique abilities.</p>
+                <div class="btn-container">
+                    <button class="btn btn-primary learn-more-btn" data-project="tacit">Learn More</button>
+                    <a href="https://store.steampowered.com/app/3670530/Tacit/" class="btn btn-secondary" target="_blank">Steam</a>
+                </div>
+            </div>
+            <div class="highlight-image">
+                <img src="./assets/tacit-hero.png" alt="Tacit Game Screenshot" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UYWNpdCBHYW1lPC90ZXh0Pjwvc3ZnPg=='">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects & Publications</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/shooter.jpg" alt="Shooter? I Hardly Know Her" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TaG9vdGVyIEdhbWU8L3RleHQ+PC9zdmc+'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Shooter? I Hardly Know Her</h3>
+                    <p class="project-description">Unity3D online multiplayer shooter built in C# for my capstone. Features core gameplay systems, enemy AI, and weapon spawner system with 30+ playtests averaging 8.3/10.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-primary learn-more-btn" data-project="shooter">Learn More</button>
+                        <a href="https://github.com/zchaplin/ShooterIHardlyKnowHer" class="btn btn-secondary" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/pcg.jpg" alt="Conversational PCG with LLMs" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5QQ0cgUmVzZWFyY2g8L3RleHQ+PC9zdmc+'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Conversational PCG with LLMs</h3>
+                    <p class="project-description">Research project exploring LLM-driven procedural content generation. Co-authored workshop paper (FDG 2025) and developed TinyTownQA dataset with 89.3% LLM accuracy.</p>
+                    <div class="btn-container">
+                        <!-- <button class="btn btn-primary learn-more-btn" data-project="pcg">Learn More</button> -->
+                        <a class="btn btn-secondary" href="https://dl.acm.org/doi/10.1145/3723498.3723788">View Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/Automanora.png" alt="Automanora" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BdXRvbWFub3JhPC90ZXh0Pjwvc3ZnPg=='">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Automanora</h3>
+                    <p class="project-description">Unity3D Puzzle Platformer with custom puzzle levels, inventory system and dynamic battery mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-primary learn-more-btn" data-project="automanora">Learn More</button>
+                        <a href="https://tankprogramming.itch.io/automanora" class="btn btn-secondary" target="_blank">Play Game</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="economics">
+                <div class="project-image">
+                    <img src="./assets/ML.jpg" alt="Machine Learning Project" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5NTCBSZXNlYXJjaDwvdGV4dD48L3N2Zz4='">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Machine Learning for Economics</h3>
+                    <p class="project-description">Explored relationship between self-esteem and academic performance using machine learning techniques in R including Lasso, Ridge, and Random Forest regression models.</p>
+                    <div class="btn-container">
+                        <a href="./assets/econPaper.pdf" class="btn btn-secondary" target="_blank">View Paper</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="economics">
+                <div class="project-image">
+                    <img src="./assets/algo.png" alt="Algorithmic Trading" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BbGdvIFRyYWRpbmc8L3RleHQ+PC9zdmc+'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Algorithmic Trading Research</h3>
+                    <p class="project-description">Learning-focused project exploring algorithmic trading strategies using Python with backtesting, data analysis, and performance visualization using sandbox APIs.</p>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-secondary">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZDOC Game -->
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/zdoc.png" alt="ZDOC Game" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY5ODAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5aRE9DIEdhbWU8L3RleHQ+PC9zdmc+'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ZDOC</h3>
+                    <p class="project-description">Top-down 2D Unity game created during Summer 2022 Game Jam. Features enemy tracking, player power-ups, and core mechanics. Averaged 4.7 star reviews from 100+ participants.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-primary learn-more-btn" data-project="zdoc">Learn More</button>
+                        <a href="https://echolanegames.itch.io/zdoc" class="btn btn-secondary" target="_blank">Play Game</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Livance Web App -->
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/medium.jpg" alt="Livance Web App" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBiY2Q0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5MaXZhbmNlPC90ZXh0Pjwvc3ZnPg=='">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Livance</h3>
+                    <p class="project-description">Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features health event logging and display functionalities developed in a collaborative team environment.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-primary learn-more-btn" data-project="livance">Learn More</button>
+                        <a href="https://devpost.com/software/livance" class="btn btn-secondary">DevPost</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <section id="skills">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Skills</h1>
-        <div class="skills-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="skills-sub-title">Game Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Unreal Engine 5</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Unity</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Phaser.js</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Game Design</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                    </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                <div class="skill-item">
+                    <span class="skill-name">Unreal Engine 5</span>
+                    <span class="skill-level">Experienced</span>
                 </div>
-                <div class="details-container">
-                    <h2 class="skills-sub-title">Programming Languages</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Python</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>C/C++</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>C#</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">Unity</span>
+                    <span class="skill-level">Experienced</span>
                 </div>
-                <div class="details-container">
-                    <h2 class="skills-sub-title">Web Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>JavaScript</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>HTML</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>CSS</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>TypeScript</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">C++</span>
+                    <span class="skill-level">Intermediate</span>
                 </div>
-                <div class="details-container">
-                    <h2 class="skills-sub-title">Design & Tools</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Perforce</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Git</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Figma</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="skills-sub-title">Data Analysis</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>R/RStudio</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" alt="Check icon" class="icon"/>
-                            <div>
-                                <h3>Stata</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">C#</span>
+                    <span class="skill-level">Experienced</span>
                 </div>
             </div>
-        </div>
-        <img src="./assets/arrow.png" alt="Arrow Icon" class="icon arrow" onclick="location.href='./#projects'"/>
-    </section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p> 
-        <h1 class="title">Projects and Publications</h1>
-        <div class="skills-details-container">
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/shooter.jpg" alt="Project 1" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Shooter? I Hardly Know Her</h2>
-                    <p class="project-description">
-                        Shooter? I Hardly Know Her is a <strong>Unity3D</strong> online multiplayer shooter built in <strong>C#</strong> for my capstone. I developed core gameplay systems, including player movement, enemy AI, and a weapon spawner system, optimizing performance for smooth online play. The game has undergone <strong>30+ playtests</strong> (avg. <strong>8.3/10</strong>) and is planned for Steam release.                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/zchaplin/ShooterIHardlyKnowHer'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://drive.google.com/file/d/1KO6y5E5ejxg7V79120ri9Mvi3voWRdX0/view'">
-                            Trailer
-                        </button>
-                    </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming</h3>
+                <div class="skill-item">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-level">Intermediate</span>
                 </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/pcg.jpg" alt="Conversational PCG with LLMs" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Conversational Procedural Content Generation with LLMs</h2>
-                    <p class="project-description">
-                        A research project exploring LLM-driven procedural content generation through conversational interactions. 
-                        I co-authored a workshop paper (<strong>FDG 2025, PCG Workshop, ACM pending</strong>) and developed two prototypes in Phaser to test LLM-based world generation. 
-                        Additionally, I collaboratively engineered <strong>TinyTownQA</strong>, a dataset with <strong>31 procedurally generated maps</strong> and <strong>642 spatial reasoning questions</strong>, 
-                        benchmarking LLM accuracy at up to <strong>89.3%</strong>.
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" disabled>
-                            Paper (Coming April 2025)
-                        </button>
-                    </div>
-                </div>                
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/Automanora.png" alt="Project 3" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Automanora</h2>
-                    <p class="project-description">
-                        A <strong>Unity3D</strong> Puzzle Platformer. Features multiple custom built puzzle levels, inventory system and dynamic battery powered mechanisms. Won the <strong>Best Aesthetic</strong> award (voted by peers) in CMPM 125: Game Technologies at UCSC.
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/ivydudzik/Automanora'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://tankprogramming.itch.io/automanora'">
-                            Live Demo
-                        </button>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-level">Experienced</span>
                 </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/phaserGame.png" alt="Project 4" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Phaser Roguelike</h2>
-                    <p class="project-description">
-                        A roguelike game built using <strong>Phaser.js</strong>. Features a custom built level, weapon upgrade mechanics and a boss fight.
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/NaitikP04/FinalGame'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://naitikp04.github.io/FinalGame/'">
-                            Live Demo
-                        </button>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">TypeScript</span>
+                    <span class="skill-level">Intermediate</span>
                 </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/galleryShooter.png" alt="Project 5" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Phaser Gallery Shooter</h2>
-                    <p class="project-description">
-                        A fast-paced gallery shooter game developed with <strong>Phaser.js</strong>. Includes multiple enemy types, waves, and power-ups for an engaging gameplay experience.
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/NaitikP04/GalleryShooter'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://naitikp04.github.io/GalleryShooter/'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/zdoc.png" alt="Project 6" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">ZDOC</h2>
-                    <p class="project-description">
-                        A Survival <strong>Unity2D</strong> Game built with <strong>C#</strong>. Player type different patterns using arrow keys to "heal zombies" Features multiple enemy types; custom built map, assets and animations; and multiple power ups. 
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/NaitikP04/-Heal-GameJam'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://goldmari.itch.io/zdoc'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/ML.jpg" alt="Project 7" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Machine Learning Project</h2>
-                    <p class="project-description">
-                        This project explores the relationship between self-esteem and academic performance. Using machine learning techniques in <strong>R</strong> like Lasso, Ridge, and Random Forest, we analyzed survey data to predict academic outcomes.
-                    </p> 
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="window.open('./assets/econPaper.pdf')">
-                            View Paper
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/medium.jpg" alt="Project 8" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Livance</h2>
-                    <p class="project-description">
-                        A health social media app designed for a <strong>hackathon</strong> to help users share health data, and seek resources with friends and families. Built with a focus on user-friendly design and efficient task tracking.
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/NaitikP04/livance'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://devpost.com/software/livance'">
-                            Live Demo
-                        </button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="./assets/algo.png" alt="Project 9" class="project-img"/>
-                    </div>
-                    <h2 class="skills-sub-title project-title">Algorithmic Trading</h2>
-                    <p class="project-description">
-                        A learning-focused project exploring algorithmic trading strategies using <strong>Python</strong>. Includes backtesting, data analysis, and visualization of trading performance using a sandbox API. 
-                    </p>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='#'">
-                            Github
-                        </button>
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='#'">
-                            Live Demo
-                        </button>
-                    </div>
+                <div class="skill-item">
+                    <span class="skill-name">GLSL</span>
+                    <span class="skill-level">Basic</span>
                 </div>
             </div>
-        </div>
-        <img src="./assets/arrow.png" alt="Arrow Icon" class="icon arrow" onclick="location.href='./#about'"/>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img src="./assets/about-pic.png" alt="Profile Picture" class="about-pic">
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <!-- <div class="details-container">
-                        <img src="./assets/experience.png" alt="Experience icon" class="icon">
-                        <h3>Experience</h3>
-                        <p>2+ years <br /> Frontend Development</p>
-                    </div> -->
-                    <div class="details-container">
-                        <img src="./assets/education.png" alt="Education icon" class="icon">
-                        <h3>Education: UCSC</h3>
-                        <p>B.S. Computer Science: Game Design<br />B.A. Economics</p>
-                    </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                <div class="skill-item">
+                    <span class="skill-name">Git/Perforce</span>
+                    <span class="skill-level">Intermediate</span>
                 </div>
-                <div class="text-container">
-                    <p>
-                        I am an International Student from India and currently in my senior year of college at the University of California, Santa Cruz. Academically, 
-                        I am working towards a BS in Computer Science: Game Design, alongside a BA in Economics.                         
-                    </p>
-                    <p>
-                        My passion lies in the realms of Game Development, Software Development, and Data Science. I bring to the table a hands-on coding experience that I am eager to leverage for 
-                        solving intricate challenges, engaging in creative problem-solving, and contributing to impactful projects. 
-                        My confidence in collaboration and innovation positions me to make a meaningful impact on both my academic endeavors and professional pursuits.
-                    </p>
-                    <p>
-                        I am poised to contribute significantly to projects that not only enhance my learning experience but also contribute positively to the broader community. As I navigate through 
-                        the intersection of technology and economics, 
-                        I am driven to make a lasting impression as 
-                        both a dedicated student and a budding professional.
-                    </p>
+                <div class="skill-item">
+                    <span class="skill-name">React/Node.js</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Figma</span>
+                    <span class="skill-level">Basic</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Agile/Scrum</span>
+                    <span class="skill-level">Experienced</span>
                 </div>
             </div>
-        </div>
-        <img src="./assets/arrow.png" alt="Arrow Icon" class="icon arrow" onclick="location.href='./#contact'"/>
-    </section> 
-    <section id="contact">
-        <p class="section__text__p1">Get In Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" alt="Email Icon" class="icon contact-icon email-icon"/>
-                <p><a href="mailto:npoddar@ucsc.edu">npoddar@ucsc.edu</a></p>
-            </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" alt="LinkedIn Icon" class="icon contact-icon"/>
-                <p><a href="https://www.linkedin.com/in/naitikpoddar/">LinkedIn</a></p>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-bar"></i> Data Analysis</h3>
+                <div class="skill-item">
+                    <span class="skill-name">R/RStudio</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">SQL</span>
+                    <span class="skill-level">Basic</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-name">Stata</span>
+                    <span class="skill-level">Experienced</span>
+                </div>
             </div>
         </div>
     </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills and Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            <p>Interested in collaborating or have questions? I'd love to hear from you!</p>
+            <div class="contact-links">
+                <a href="mailto:naitikpoddar145@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    naitikpoddar145@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/naitikpoddar/" class="contact-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/NaitikP04" class="contact-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
             </div>
-        </nav>
-        <p>Copyright &#169; 2024 Naitik Poddar. All Rights Reserved</p>
-    </footer>
-    <button id="back-to-top" title="Go to top">↑</button>
+        </div>
+    </section>
+
+    <!-- Simple Modal for demonstration -->
+    <div id="tacitModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Tacit - 4-Player Action RPG</h2>
+                <p>Software Developer at Goyangi Games | September 2024 - Present</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Project Overview</h3>
+                    <p>Tacit is an ambitious 4-player action RPG currently in development for Steam release in Q4 2025. As a Software Developer at Goyangi Games, I'm responsible for architecting and implementing core online multiplayer systems using Unreal Engine 5, C++, and the Gameplay Ability System.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Key Achievements</h3>
+                    <p>• Architected low-latency replication pipeline, reducing average roundtrip lag by 22% (35ms)</p>
+                    <p>• Implemented real-time spellcasting framework supporting 30+ unique abilities</p>
+                    <p>• Integrated Steam Online Subsystem for lobby matchmaking and secure P2P play</p>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Gallery</h3>
+                    <div class="media-gallery">
+                        <div class="media-grid">
+                            <!-- Screenshot 1 -->
+                            <div class="media-item">
+                                <div class="media-content">
+                                    <img src="./assets/tacit-gameplay1.jpg" alt="Tacit Gameplay" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Db21iYXQgU3lzdGVtPC90ZXh0Pjwvc3ZnPg=='">
+                                </div>
+                                <div class="media-caption">
+                                    <h4>Real-time Combat System</h4>
+                                    <p>Four players engaging in synchronized combat with custom ability framework supporting spell combinations and environmental interactions.</p>
+                                </div>
+                            </div>
+
+                            <!-- Video 1 -->
+                            <div class="media-item">
+                                <div class="media-content">
+                                    <video poster="./assets/tacit-networking-thumb.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <source src="./assets/tacit-networking-demo.mp4" type="video/mp4">
+                                    </video>
+                                    <!-- Fallback image -->
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5OZXR3b3JraW5nIERlbW88L3RleHQ+PC9zdmc+" alt="Networking Demo" style="display:none;">
+                                    <div class="video-overlay">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="media-caption">
+                                    <h4>Low-Latency Networking</h4>
+                                    <p>Demonstration of the optimized replication pipeline showing smooth 4-player synchronization with 22% reduced lag times.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screenshot 2 -->
+                            <div class="media-item">
+                                <div class="media-content">
+                                    <img src="./assets/tacit-abilities.jpg" alt="Ability System" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2MzQ3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BYmlsaXR5IFN5c3RlbTwvdGV4dD48L3N2Zz4='">
+                                </div>
+                                <div class="media-caption">
+                                    <h4>Spellcasting Framework</h4>
+                                    <p>Visual showcase of the 30+ unique abilities system built with Unreal's Gameplay Ability System, featuring elemental combinations.</p>
+                                </div>
+                            </div>
+
+                            <!-- Screenshot 3 -->
+                            <div class="media-item">
+                                <div class="media-content">
+                                    <img src="./assets/tacit-lobby.jpg" alt="Steam Integration" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGNhZjUwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TdGVhbSBJbnRlZ3JhdGlvbjwvdGV4dD48L3N2Zz4='">
+                                </div>
+                                <div class="media-caption">
+                                    <h4>Steam Lobby System</h4>
+                                    <p>Seamless Steam Online Subsystem integration for matchmaking, friend invites, and secure peer-to-peer gameplay sessions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>Technical Stack</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Unreal Engine 5</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Gameplay Ability System</span>
+                        <span class="tech-tag">Steam Online Subsystem</span>
+                        <span class="tech-tag">Networking</span>
+                        <span class="tech-tag">Perforce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Shooter Modal -->
+    <div id="shooterModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Shooter? I Hardly Know Her</h2>
+                <p>Unity3D Online Multiplayer Game | Capstone Project</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🚧 Under Construction</h3>
+                    <p>Detailed project information and media gallery coming soon! In the meantime, check out the GitHub repository for code and development progress.</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Quick Overview</h3>
+                    <p>Unity3D online multiplayer shooter featuring core gameplay systems, enemy AI, and weapon spawner system. Received 8.3/10 average rating across 30+ playtests.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Automanora Modal -->
+    <div id="automanoraModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Automanora</h2>
+                <p>Unity3D Puzzle Platformer | "Best Aesthetic" Award Winner</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🚧 Under Construction</h3>
+                    <p>Detailed project breakdown and screenshots coming soon! You can download the full game on itch.io using the link below. I highly recommend downloading the Windows build instead of trying to play the WebGL version!</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Quick Overview</h3>
+                    <p>Unity3D puzzle platformer with custom levels, inventory system, and dynamic battery mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZDOC Modal -->
+    <div id="zdocModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>ZDOC</h2>
+                <p>Top-Down 2D Game | Summer 2022 Game Jam</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🚧 Under Construction</h3>
+                    <p>Full project details and development story coming soon! You can play the game on itch.io using the link below.</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Quick Overview</h3>
+                    <p>Top-down 2D Unity game featuring enemy tracking, player power-ups, and engaging core mechanics. Averaged 4.7 star reviews from 100+ Game Jam participants.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Livance Modal -->
+    <div id="livanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Livance</h2>
+                <p>Social Health Monitoring Platform | Web Application</p>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>🚧 Under Construction</h3>
+                    <p>Detailed project information coming soon! Check out the DevPost page for more information about this hackathon project.</p>
+                </div>
+                <div class="modal-section">
+                    <h3>Quick Overview</h3>
+                    <p>Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features health event logging and display functionalities developed collaboratively.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
