@@ -46,6 +46,74 @@
         width: 95%;
     }
 
+    /* Enhanced Modal Responsive */
+    .slideshow-modal-content {
+        margin: 5% auto;
+        width: 98%;
+        max-height: 95vh;
+    }
+
+    .slide-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .slide-media {
+        min-height: 200px;
+        order: 1;
+    }
+
+    .slide-text {
+        order: 2;
+        padding: 0.5rem;
+    }
+
+    .slide-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .slide-text p {
+        font-size: 0.9rem;
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .nav-arrow-left {
+        left: 0.5rem;
+    }
+
+    .nav-arrow-right {
+        right: 0.5rem;
+    }
+
+    .modal-header {
+        padding: 1.5rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .close {
+        right: 1.5rem;
+        top: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .modal-footer {
+        padding: 1rem;
+    }
+
+    .tech-stack {
+        justify-content: center;
+    }
+
     .project-filter-buttons {
         justify-content: center;
     }

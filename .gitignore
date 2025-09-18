@@ -1,3 +1,6 @@
 
 assets/.DS_Store
 .DS_Store
+
+# Kiro IDE files and folders
+.kiro/

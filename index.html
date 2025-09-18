@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -30,24 +32,30 @@
                 <h1>Naitik Poddar</h1>
                 <p class="hero-subtitle">B.S. Computer Science: Game Design & B.A. Economics Graduate</p>
                 <p class="hero-description">
-                    I'm a recent UC Santa Cruz graduate with dual degrees in Computer Science: Game Design and Economics, passionate about creating engaging interactive experiences and innovative software solutions.
+                    I'm a recent UC Santa Cruz graduate with dual degrees in Computer Science: Game Design and
+                    Economics, passionate about creating engaging interactive experiences and innovative software
+                    solutions.
                 </p>
                 <p class="hero-description">
-                    Whether developing multiplayer game systems, conducting research in procedural content generation and AI, or exploring economics research, 
-                    I'm driven to build meaningful technology that impacts communities at the intersection of creativity, analytical thinking, and cutting-edge innovation.
+                    Whether developing multiplayer game systems, conducting research in procedural content generation
+                    and AI, or exploring economics research,
+                    I'm driven to build meaningful technology that impacts communities at the intersection of
+                    creativity, analytical thinking, and cutting-edge innovation.
                 </p>
                 <div class="project-filter-buttons">
-                    <button class="filter-btn active" onclick="showAllProjects()">All Projects</button>
-                    <button class="filter-btn" onclick="filterProjects('tech')">Tech & Games</button>
-                    <button class="filter-btn" onclick="filterProjects('economics')">Economics & Data</button>
+                    <button class="filter-btn active" onclick="showAllProjects(event)">All Projects</button>
+                    <button class="filter-btn" onclick="filterProjects('tech', event)">Tech & Games</button>
+                    <button class="filter-btn" onclick="filterProjects('economics', event)">Economics & Data</button>
                 </div>
                 <div class="btn-container">
-                    <a href="./assets/resume.pdf" class="btn btn-primary" target="_blank">View Resume</a>
+                    <a href="./assets/documents/NaitikPoddarGameDevResume.pdf" class="btn btn-primary"
+                        target="_blank">View Resume</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./assets/about-pic.png" alt="Naitik Poddar" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjE0MCIgZmlsbD0iIzRhOTBlMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+TlA8L3RleHQ+PC9zdmc+'">
+                <img src="./assets/images/about-pic.png" alt="Naitik Poddar"
+                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjE0MCIgZmlsbD0iIzRhOTBlMiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+TlA8L3RleHQ+PC9zdmc+'">
             </div>
         </div>
     </section>
@@ -59,15 +67,20 @@
             <div class="highlight-text">
                 <h2>Tacit</h2>
                 <div class="company">Software Developer at Goyangi Games</div>
-                <p>Currently shipping core online multiplayer systems for Tacit, a 4-player action RPG targeting Steam Q4 2025. Built using Unreal Engine 5, C++, and the Gameplay Ability System with focus on low-latency networking and scalable architecture.</p>
-                <p>Architected replication pipeline that reduced average roundtrip lag by 22% and implemented a real-time spellcasting framework supporting 30+ unique abilities.</p>
+                <p>Currently shipping core online multiplayer systems for Tacit, a 4-player action RPG targeting Steam
+                    Q4 2025. Built using Unreal Engine 5, C++, and the Gameplay Ability System with focus on low-latency
+                    networking and scalable architecture.</p>
+                <p>Architected replication pipeline that reduced average roundtrip lag by 22% and implemented a
+                    real-time spellcasting framework supporting 30+ unique abilities.</p>
                 <div class="btn-container">
                     <button class="btn btn-primary learn-more-btn" data-project="tacit">Learn More</button>
-                    <a href="https://store.steampowered.com/app/3670530/Tacit/" class="btn btn-secondary" target="_blank">Steam</a>
+                    <a href="https://store.steampowered.com/app/3670530/Tacit/" class="btn btn-secondary"
+                        target="_blank">Steam</a>
                 </div>
             </div>
             <div class="highlight-image">
-                <img src="./assets/tacit-hero.png" alt="Tacit Game Screenshot" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UYWNpdCBHYW1lPC90ZXh0Pjwvc3ZnPg=='">
+                <img src="./assets/projects/tacit/tacit-hero.png" alt="Tacit Game Screenshot"
+                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UYWNpdCBHYW1lPC90ZXh0Pjwvc3ZnPg=='">
             </div>
         </div>
     </section>
@@ -78,66 +91,84 @@
         <div class="projects-grid">
             <div class="project-card" data-category="tech">
                 <div class="project-image">
-                    <img src="./assets/shooter.jpg" alt="Shooter? I Hardly Know Her" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TaG9vdGVyIEdhbWU8L3RleHQ+PC9zdmc+'">
+                    <img src="./assets/projects/shooter/shooter.jpg" alt="Shooter? I Hardly Know Her"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TaG9vdGVyIEdhbWU8L3RleHQ+PC9zdmc+'">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Shooter? I Hardly Know Her</h3>
-                    <p class="project-description">Unity3D online multiplayer shooter built in C# for my capstone. Features core gameplay systems, enemy AI, and weapon spawner system with 30+ playtests averaging 8.3/10.</p>
+                    <p class="project-description">Unity3D online multiplayer shooter built in C# for my capstone.
+                        Features core gameplay systems, enemy AI, and weapon spawner system with 30+ playtests averaging
+                        8.3/10.</p>
                     <div class="btn-container">
                         <button class="btn btn-primary learn-more-btn" data-project="shooter">Learn More</button>
-                        <a href="https://github.com/zchaplin/ShooterIHardlyKnowHer" class="btn btn-secondary" target="_blank">GitHub</a>
+                        <a href="https://github.com/zchaplin/ShooterIHardlyKnowHer" class="btn btn-secondary"
+                            target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card" data-category="tech">
                 <div class="project-image">
-                    <img src="./assets/pcg.jpg" alt="Conversational PCG with LLMs" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5QQ0cgUmVzZWFyY2g8L3RleHQ+PC9zdmc+'">
+                    <img src="./assets/projects/other/pcg.jpg" alt="Conversational PCG with LLMs"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5QQ0cgUmVzZWFyY2g8L3RleHQ+PC9zdmc+'">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Conversational PCG with LLMs</h3>
-                    <p class="project-description">Research project exploring LLM-driven procedural content generation. Co-authored workshop paper (FDG 2025) and developed TinyTownQA dataset with 89.3% LLM accuracy.</p>
+                    <p class="project-description">Research project exploring LLM-driven procedural content generation.
+                        Co-authored workshop paper (FDG 2025) and developed TinyTownQA dataset with 89.3% LLM accuracy.
+                    </p>
                     <div class="btn-container">
                         <!-- <button class="btn btn-primary learn-more-btn" data-project="pcg">Learn More</button> -->
-                        <a class="btn btn-secondary" href="https://dl.acm.org/doi/10.1145/3723498.3723788">View Paper</a>
+                        <a class="btn btn-secondary" href="https://dl.acm.org/doi/10.1145/3723498.3723788">View
+                            Paper</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card" data-category="tech">
                 <div class="project-image">
-                    <img src="./assets/Automanora.png" alt="Automanora" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BdXRvbWFub3JhPC90ZXh0Pjwvc3ZnPg=='">
+                    <img src="./assets/projects/automanora/Automanora.png" alt="Automanora"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BdXRvbWFub3JhPC90ZXh0Pjwvc3ZnPg=='">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Automanora</h3>
-                    <p class="project-description">Unity3D Puzzle Platformer with custom puzzle levels, inventory system and dynamic battery mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC.</p>
+                    <p class="project-description">Unity3D Puzzle Platformer with custom puzzle levels, inventory system
+                        and dynamic battery mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC.</p>
                     <div class="btn-container">
                         <button class="btn btn-primary learn-more-btn" data-project="automanora">Learn More</button>
-                        <a href="https://tankprogramming.itch.io/automanora" class="btn btn-secondary" target="_blank">Play Game</a>
+                        <a href="https://tankprogramming.itch.io/automanora" class="btn btn-secondary"
+                            target="_blank">Play Game</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card" data-category="economics">
                 <div class="project-image">
-                    <img src="./assets/ML.jpg" alt="Machine Learning Project" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5NTCBSZXNlYXJjaDwvdGV4dD48L3N2Zz4='">
+                    <img src="./assets/projects/other/ML.jpg" alt="Machine Learning Project"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5NTCBSZXNlYXJjaDwvdGV4dD48L3N2Zz4='">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Machine Learning for Economics</h3>
-                    <p class="project-description">Explored relationship between self-esteem and academic performance using machine learning techniques in R including Lasso, Ridge, and Random Forest regression models.</p>
+                    <p class="project-description">Explored relationship between self-esteem and academic performance
+                        using machine learning techniques in R including Lasso, Ridge, and Random Forest regression
+                        models.</p>
                     <div class="btn-container">
-                        <a href="./assets/econPaper.pdf" class="btn btn-secondary" target="_blank">View Paper</a>
+                        <a href="./assets/documents/econPaper.pdf" class="btn btn-secondary" target="_blank">View
+                            Paper</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card" data-category="economics">
                 <div class="project-image">
-                    <img src="./assets/algo.png" alt="Algorithmic Trading" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BbGdvIFRyYWRpbmc8L3RleHQ+PC9zdmc+'">
+                    <img src="./assets/projects/other/algo.png" alt="Algorithmic Trading"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BbGdvIFRyYWRpbmc8L3RleHQ+PC9zdmc+'">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Algorithmic Trading Research</h3>
-                    <p class="project-description">Learning-focused project exploring algorithmic trading strategies using Python with backtesting, data analysis, and performance visualization using sandbox APIs.</p>
+                    <p class="project-description">Learning-focused project exploring algorithmic trading strategies
+                        using Python with backtesting, data analysis, and performance visualization using sandbox APIs.
+                    </p>
                     <div class="btn-container">
                         <a href="#" class="btn btn-secondary">GitHub</a>
                     </div>
@@ -147,14 +178,18 @@
             <!-- ZDOC Game -->
             <div class="project-card" data-category="tech">
                 <div class="project-image">
-                    <img src="./assets/zdoc.png" alt="ZDOC Game" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY5ODAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5aRE9DIEdhbWU8L3RleHQ+PC9zdmc+'">
+                    <img src="./assets/projects/zdoc/zdoc.png" alt="ZDOC Game"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY5ODAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5aRE9DIEdhbWU8L3RleHQ+PC9zdmc+'">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">ZDOC</h3>
-                    <p class="project-description">Top-down 2D Unity game created during Summer 2022 Game Jam. Features enemy tracking, player power-ups, and core mechanics. Averaged 4.7 star reviews from 100+ participants.</p>
+                    <p class="project-description">Top-down 2D Unity game created during Summer 2022 Game Jam. Features
+                        enemy tracking, player power-ups, and core mechanics. Averaged 4.7 star reviews from 100+
+                        participants.</p>
                     <div class="btn-container">
                         <button class="btn btn-primary learn-more-btn" data-project="zdoc">Learn More</button>
-                        <a href="https://echolanegames.itch.io/zdoc" class="btn btn-secondary" target="_blank">Play Game</a>
+                        <a href="https://echolanegames.itch.io/zdoc" class="btn btn-secondary" target="_blank">Play
+                            Game</a>
                     </div>
                 </div>
             </div>
@@ -162,11 +197,14 @@
             <!-- Livance Web App -->
             <div class="project-card" data-category="tech">
                 <div class="project-image">
-                    <img src="./assets/medium.jpg" alt="Livance Web App" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBiY2Q0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5MaXZhbmNlPC90ZXh0Pjwvc3ZnPg=='">
+                    <img src="./assets/projects/other/medium.jpg" alt="Livance Web App"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBiY2Q0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5MaXZhbmNlPC90ZXh0Pjwvc3ZnPg=='">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Livance</h3>
-                    <p class="project-description">Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features health event logging and display functionalities developed in a collaborative team environment.</p>
+                    <p class="project-description">Social health monitoring platform built with Next.js, React, HTML5,
+                        and CSS3. Features health event logging and display functionalities developed in a collaborative
+                        team environment.</p>
                     <div class="btn-container">
                         <button class="btn btn-primary learn-more-btn" data-project="livance">Learn More</button>
                         <a href="https://devpost.com/software/livance" class="btn btn-secondary">DevPost</a>
@@ -284,182 +322,333 @@
         </div>
     </section>
 
-    <!-- Simple Modal for demonstration -->
-    <div id="tacitModal" class="modal">
-        <div class="modal-content">
+    <!-- Enhanced Modal for slideshow -->
+    <div id="tacitModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Tacit - 4-Player Action RPG</h2>
                 <p>Software Developer at Goyangi Games | September 2024 - Present</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>Project Overview</h3>
-                    <p>Tacit is an ambitious 4-player action RPG currently in development for Steam release in Q4 2025. As a Software Developer at Goyangi Games, I'm responsible for architecting and implementing core online multiplayer systems using Unreal Engine 5, C++, and the Gameplay Ability System.</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Key Achievements</h3>
-                    <p>• Architected low-latency replication pipeline, reducing average roundtrip lag by 22% (35ms)</p>
-                    <p>• Implemented real-time spellcasting framework supporting 30+ unique abilities</p>
-                    <p>• Integrated Steam Online Subsystem for lobby matchmaking and secure P2P play</p>
-                </div>
 
-                <div class="modal-section">
-                    <h3>Gallery</h3>
-                    <div class="media-gallery">
-                        <div class="media-grid">
-                            <!-- Screenshot 1 -->
-                            <div class="media-item">
-                                <div class="media-content">
-                                    <img src="./assets/tacit-gameplay1.jpg" alt="Tacit Gameplay" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGE5MGUyIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Db21iYXQgU3lzdGVtPC90ZXh0Pjwvc3ZnPg=='">
-                                </div>
-                                <div class="media-caption">
-                                    <h4>Real-time Combat System</h4>
-                                    <p>Four players engaging in synchronized combat with custom ability framework supporting spell combinations and environmental interactions.</p>
-                                </div>
-                            </div>
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
 
-                            <!-- Video 1 -->
-                            <div class="media-item">
-                                <div class="media-content">
-                                    <video poster="./assets/tacit-networking-thumb.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                        <source src="./assets/tacit-networking-demo.mp4" type="video/mp4">
-                                    </video>
-                                    <!-- Fallback image -->
-                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjN2I2OGVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5OZXR3b3JraW5nIERlbW88L3RleHQ+PC9zdmc+" alt="Networking Demo" style="display:none;">
-                                    <div class="video-overlay">
-                                        <i class="fas fa-play"></i>
-                                    </div>
-                                </div>
-                                <div class="media-caption">
-                                    <h4>Low-Latency Networking</h4>
-                                    <p>Demonstration of the optimized replication pipeline showing smooth 4-player synchronization with 22% reduced lag times.</p>
-                                </div>
-                            </div>
+                <!-- Slide Content Area -->
+                <div class="slide-content-wrapper">
+                    <div class="slide-content active" data-slide="0">
+                        <div class="slide-media">
+                            <img src="./assets/projects/tacit/tacit-hero.png" alt="Tacit Project Overview"
+                                class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Project Overview</h3>
+                            <p>Tacit is an ambitious 4-player action RPG currently in development for Steam release in
+                                Q4 2025. As a Software Developer at Goyangi Games, I'm responsible for architecting and
+                                implementing core online multiplayer systems using Unreal Engine 5, C++, and the
+                                Gameplay Ability System.</p>
+                        </div>
+                    </div>
 
-                            <!-- Screenshot 2 -->
-                            <div class="media-item">
-                                <div class="media-content">
-                                    <img src="./assets/tacit-abilities.jpg" alt="Ability System" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY2MzQ3Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BYmlsaXR5IFN5c3RlbTwvdGV4dD48L3N2Zz4='">
-                                </div>
-                                <div class="media-caption">
-                                    <h4>Spellcasting Framework</h4>
-                                    <p>Visual showcase of the 30+ unique abilities system built with Unreal's Gameplay Ability System, featuring elemental combinations.</p>
-                                </div>
-                            </div>
+                    <div class="slide-content" data-slide="1">
+                        <div class="slide-media">
+                            <img src="./assets/projects/tacit/tacit-combat-screenshot.png" alt="Combat System"
+                                class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Real-time Combat System</h3>
+                            <p>Four players engaging in synchronized combat with custom ability framework supporting
+                                spell combinations and environmental interactions. Built with Unreal's Gameplay Ability
+                                System for scalable and networked gameplay.</p>
+                        </div>
+                    </div>
 
-                            <!-- Screenshot 3 -->
-                            <div class="media-item">
-                                <div class="media-content">
-                                    <img src="./assets/tacit-lobby.jpg" alt="Steam Integration" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNGNhZjUwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TdGVhbSBJbnRlZ3JhdGlvbjwvdGV4dD48L3N2Zz4='">
-                                </div>
-                                <div class="media-caption">
-                                    <h4>Steam Lobby System</h4>
-                                    <p>Seamless Steam Online Subsystem integration for matchmaking, friend invites, and secure peer-to-peer gameplay sessions.</p>
-                                </div>
-                            </div>
+                    <div class="slide-content" data-slide="2">
+                        <div class="slide-media">
+                            <video class="media-video" poster="./assets/projects/tacit/tacit-abilities-poster.jpg"
+                                controls>
+                                <source src="./assets/projects/tacit/tacit-abilities-demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="slide-text">
+                            <h3>Spellcasting Framework</h3>
+                            <p>Demonstration of the 30+ unique abilities system featuring elemental combinations,
+                                real-time casting, and networked synchronization across all players.</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-content" data-slide="3">
+                        <div class="slide-media">
+                            <img src="./assets/projects/tacit/tacit-networking-code.png" alt="Networking Code"
+                                class="media-code">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Low-Latency Networking</h3>
+                            <p>Architected replication pipeline that reduced average roundtrip lag by 22% (35ms).
+                                Implementation showcases custom networking solutions and Steam Online Subsystem
+                                integration.</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-content" data-slide="4">
+                        <div class="slide-media">
+                            <img src="./assets/projects/tacit/tacit-optimization-code.png" alt="Optimization Code"
+                                class="media-code">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Performance Optimization</h3>
+                            <p>Code examples showing performance optimizations, memory management, and efficient data
+                                structures used to maintain 60fps gameplay across 4-player sessions.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-section">
-                    <h3>Technical Stack</h3>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Unreal Engine 5</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Gameplay Ability System</span>
-                        <span class="tech-tag">Steam Online Subsystem</span>
-                        <span class="tech-tag">Networking</span>
-                        <span class="tech-tag">Perforce</span>
-                    </div>
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="indicator" data-slide="3" aria-label="Go to slide 4"></button>
+                    <button class="indicator" data-slide="4" aria-label="Go to slide 5"></button>
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">Unreal Engine 5</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Gameplay Ability System</span>
+                    <span class="tech-tag">Steam Online Subsystem</span>
+                    <span class="tech-tag">Networking</span>
+                    <span class="tech-tag">Perforce</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- Shooter Modal -->
-    <div id="shooterModal" class="modal">
-        <div class="modal-content">
+    <div id="shooterModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Shooter? I Hardly Know Her</h2>
                 <p>Unity3D Online Multiplayer Game | Capstone Project</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>🚧 Under Construction</h3>
-                    <p>Detailed project information and media gallery coming soon! In the meantime, check out the GitHub repository for code and development progress.</p>
+
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Content Area -->
+                <div class="slide-content-wrapper">
+                    <div class="slide-content active" data-slide="0">
+                        <div class="slide-media">
+                            <img src="./assets/projects/shooter/shooter.jpg" alt="Shooter Game Overview"
+                                class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Project Overview</h3>
+                            <p>Unity3D online multiplayer shooter featuring core gameplay systems, enemy AI, and weapon
+                                spawner system. Received 8.3/10 average rating across 30+ playtests. Built as my
+                                capstone project showcasing multiplayer networking and game design skills.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-section">
-                    <h3>Quick Overview</h3>
-                    <p>Unity3D online multiplayer shooter featuring core gameplay systems, enemy AI, and weapon spawner system. Received 8.3/10 average rating across 30+ playtests.</p>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">Unity3D</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Netcode for GameObjects</span>
+                    <span class="tech-tag">AI Pathfinding</span>
+                    <span class="tech-tag">Multiplayer</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Automanora Modal -->
-    <div id="automanoraModal" class="modal">
-        <div class="modal-content">
+    <div id="automanoraModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Automanora</h2>
                 <p>Unity3D Puzzle Platformer | "Best Aesthetic" Award Winner</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>🚧 Under Construction</h3>
-                    <p>Detailed project breakdown and screenshots coming soon! You can download the full game on itch.io using the link below. I highly recommend downloading the Windows build instead of trying to play the WebGL version!</p>
+
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Content Area -->
+                <div class="slide-content-wrapper">
+                    <div class="slide-content active" data-slide="0">
+                        <div class="slide-media">
+                            <img src="./assets/projects/automanora/Automanora.png" alt="Automanora Game Overview"
+                                class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Project Overview</h3>
+                            <p>Unity3D puzzle platformer with custom levels, inventory system, and dynamic battery
+                                mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC. Features innovative puzzle
+                                design and beautiful visual aesthetics.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-section">
-                    <h3>Quick Overview</h3>
-                    <p>Unity3D puzzle platformer with custom levels, inventory system, and dynamic battery mechanisms. Won "Best Aesthetic" award in CMPM 125 at UCSC.</p>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">Unity3D</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">Level Design</span>
+                    <span class="tech-tag">Game Mechanics</span>
+                    <span class="tech-tag">Visual Design</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ZDOC Modal -->
-    <div id="zdocModal" class="modal">
-        <div class="modal-content">
+    <div id="zdocModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>ZDOC</h2>
                 <p>Top-Down 2D Game | Summer 2022 Game Jam</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>🚧 Under Construction</h3>
-                    <p>Full project details and development story coming soon! You can play the game on itch.io using the link below.</p>
+
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Content Area -->
+                <div class="slide-content-wrapper">
+                    <div class="slide-content active" data-slide="0">
+                        <div class="slide-media">
+                            <img src="./assets/projects/zdoc/zdoc.png" alt="ZDOC Game Overview" class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Project Overview</h3>
+                            <p>Top-down 2D Unity game featuring enemy tracking, player power-ups, and engaging core
+                                mechanics. Averaged 4.7 star reviews from 100+ Game Jam participants. Created during
+                                Summer 2022 Game Jam showcasing rapid prototyping skills.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-section">
-                    <h3>Quick Overview</h3>
-                    <p>Top-down 2D Unity game featuring enemy tracking, player power-ups, and engaging core mechanics. Averaged 4.7 star reviews from 100+ Game Jam participants.</p>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">Unity3D</span>
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">2D Game Design</span>
+                    <span class="tech-tag">Game Jam</span>
+                    <span class="tech-tag">Rapid Prototyping</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Livance Modal -->
-    <div id="livanceModal" class="modal">
-        <div class="modal-content">
+    <div id="livanceModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
                 <h2>Livance</h2>
                 <p>Social Health Monitoring Platform | Web Application</p>
             </div>
-            <div class="modal-body">
-                <div class="modal-section">
-                    <h3>🚧 Under Construction</h3>
-                    <p>Detailed project information coming soon! Check out the DevPost page for more information about this hackathon project.</p>
+
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Content Area -->
+                <div class="slide-content-wrapper">
+                    <div class="slide-content active" data-slide="0">
+                        <div class="slide-media">
+                            <img src="./assets/projects/other/medium.jpg" alt="Livance Platform Overview"
+                                class="media-image">
+                        </div>
+                        <div class="slide-text">
+                            <h3>Project Overview</h3>
+                            <p>Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features
+                                health event logging and display functionalities developed collaboratively in a team
+                                environment during a hackathon.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-section">
-                    <h3>Quick Overview</h3>
-                    <p>Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features health event logging and display functionalities developed collaboratively.</p>
+
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Team Collaboration</span>
                 </div>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
