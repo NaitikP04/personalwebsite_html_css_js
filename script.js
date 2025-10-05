@@ -239,6 +239,64 @@ const projectsData = {
         externalLinks: {
             demo: 'https://devpost.com/software/livance'
         }
+    },
+    gmcc: {
+        projectId: 'gmcc',
+        title: 'AI Business Assistant',
+        subtitle: 'Freelance Software Developer at General Mortgage Capital Corporation',
+        overview: 'Built a production-ready backend AI business assistant using Node.js, Express, and Google Gemini, architecting a custom Retrieval-Augmented Generation (RAG) pipeline.',
+        techStack: ['Node.js', 'Express', 'Google Gemini', 'PostgreSQL', 'Puppeteer', 'LlamaParse', 'Backblaze B2'],
+        slides: [
+            {
+                id: 'conversation',
+                type: 'image',
+                media: './assets/projects/GMCC/exampleConversation.png',
+                title: 'AI Chatbot Interface',
+                description: 'Interactive chatbot interface showcasing natural language processing capabilities and document-driven query handling.',
+                caption: 'Example conversation demonstrating AI assistant capabilities'
+            },
+            {
+                id: 'admin',
+                type: 'image',
+                media: './assets/projects/GMCC/AdminPanel.png',
+                title: 'Admin Control Panel',
+                description: 'Comprehensive admin panel with role-based access controls, session tracking, and system management tools.',
+                caption: 'Administrative dashboard for system management and monitoring'
+            },
+            {
+                id: 'documents',
+                type: 'image',
+                media: './assets/projects/GMCC/DocumentManagerAdmin.png',
+                title: 'Document Management System',
+                description: 'Intelligent document ingestion with multimodal support (PDF, DOCX, PPTX) supporting scalable information retrieval across 40+ internal documents.',
+                caption: 'Document manager showing multimodal file processing capabilities'
+            },
+            {
+                id: 'training',
+                type: 'image',
+                media: './assets/projects/GMCC/TrainingModule.png',
+                title: 'Training & QA Module',
+                description: 'Feedback-driven QA workflows incorporating duplicate detection, expert ratings, and deterministic test questions to continuously drive accuracy.',
+                caption: 'Training module interface for quality assurance and feedback management'
+            },
+            {
+                id: 'webscraping',
+                type: 'image',
+                media: './assets/projects/GMCC/WebScraping.png',
+                title: 'Web Scraping & Data Ingestion',
+                description: 'Dynamic web scraping via Puppeteer and LlamaParse, supporting advanced vector-embedding database structures for enhanced information retrieval.',
+                caption: 'Web scraping tools for automated data collection and processing'
+            },
+            {
+                id: 'login',
+                type: 'image',
+                media: './assets/projects/GMCC/loginPage.png',
+                title: 'Secure Authentication',
+                description: 'Integrated secure session tracking and role-based authentication system with PostgreSQL backend and cloud storage integration.',
+                caption: 'Login interface'
+            }
+        ],
+        externalLinks: {}
     }
 };
 
@@ -411,6 +469,19 @@ function initializeSlideshow(modal, projectId) {
         return;
     }
 
+    // FORCE CLEANUP: Remove any lingering loading spinners immediately
+    setTimeout(() => {
+        const allSpinners = modal.querySelectorAll('.image-loading');
+        if (allSpinners.length > 0) {
+            console.log(`Removing ${allSpinners.length} lingering spinners from modal`);
+            allSpinners.forEach(spinner => spinner.remove());
+        }
+        
+        // Also remove loading class from all images
+        const allImages = modal.querySelectorAll('.media-image');
+        allImages.forEach(img => img.classList.remove('loading'));
+    }, 100);
+
     // Get generated slides and indicators
     const slides = modal.querySelectorAll('.slide-content');
     const indicators = modal.querySelectorAll('.indicator');
@@ -550,15 +621,20 @@ function initializeSlideshow(modal, projectId) {
 // Generate slides dynamically from project data
 function generateSlidesFromData(modal, projectData) {
     try {
-        const slideshowContainer = modal.querySelector('.slideshow-container');
+        const slideshowContainer = modal.querySelector('.slide-content-wrapper');
         if (!slideshowContainer) {
-            console.error('Slideshow container not found in modal');
+            console.error('Slide content wrapper not found in modal');
             return false;
         }
 
-        // Clear existing slides
+        // Clear existing slides and any loading elements
         const existingSlides = slideshowContainer.querySelectorAll('.slide-content');
+        console.log('Clearing existing slides:', existingSlides.length); // Debug log
         existingSlides.forEach(slide => slide.remove());
+        
+        // Also clear any orphaned loading spinners
+        const orphanedSpinners = slideshowContainer.querySelectorAll('.image-loading');
+        orphanedSpinners.forEach(spinner => spinner.remove());
 
         // Clear existing indicators
         const indicatorContainer = modal.querySelector('.slide-indicators');
@@ -569,6 +645,12 @@ function generateSlidesFromData(modal, projectData) {
         // Generate slides from project data
         projectData.slides.forEach((slideData, index) => {
             const slideElement = createSlideElement(slideData, index);
+            
+            // Mark first slide as active
+            if (index === 0) {
+                slideElement.classList.add('active');
+            }
+            
             slideshowContainer.appendChild(slideElement);
 
             // Create indicator
@@ -668,7 +750,7 @@ function createSlideElement(slideData, index) {
 // Create indicator element
 function createIndicatorElement(index, totalSlides) {
     const indicator = document.createElement('button');
-    indicator.className = 'indicator';
+    indicator.className = index === 0 ? 'indicator active' : 'indicator';
     indicator.setAttribute('aria-label', `Go to slide ${index + 1} of ${totalSlides}`);
     indicator.setAttribute('tabindex', '0');
     indicator.dataset.slideIndex = index;
@@ -858,10 +940,22 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
     img.className = 'media-image loading';
     img.alt = alt || 'Project image';
 
+    // Function to clean up loading state
+    const cleanupLoading = () => {
+        img.classList.remove('loading');
+        // Remove all loading spinners in this container (in case of duplicates)
+        const spinners = container.querySelectorAll('.image-loading');
+        spinners.forEach(spinner => {
+            if (spinner.parentNode) {
+                spinner.parentNode.removeChild(spinner);
+            }
+        });
+    };
+
     // Handle image loading
     img.onload = function () {
-        img.classList.remove('loading');
-        loadingSpinner.remove();
+        console.log('Image loaded:', src); // Debug log
+        cleanupLoading();
 
         // Determine best aspect ratio if auto
         if (aspectRatio === 'auto') {
@@ -878,8 +972,9 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
 
     // Handle image error
     img.onerror = function () {
+        console.log('Image failed to load:', src); // Debug log
         img.classList.add('error');
-        loadingSpinner.remove();
+        cleanupLoading();
 
         const errorDiv = document.createElement('div');
         errorDiv.className = 'image-error';
@@ -890,7 +985,25 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
         container.appendChild(errorDiv);
     };
 
+    // Set src and check if image is already loaded (cached)
     img.src = src;
+    
+    // Handle case where image is already cached and loaded
+    if (img.complete && img.naturalWidth > 0) {
+        // Use setTimeout to ensure the spinner exists before removing it
+        setTimeout(() => {
+            cleanupLoading();
+        }, 0);
+    }
+    
+    // AGGRESSIVE FALLBACK: Remove loading spinner after 1 seconds no matter what
+    setTimeout(() => {
+        if (container.querySelector('.image-loading')) {
+            console.warn('Force removing stuck loading spinner for:', src);
+            cleanupLoading();
+        }
+    }, 1000);
+    
     container.appendChild(img);
 
     return container;
@@ -924,25 +1037,38 @@ function handleImageResize() {
 function initializeImageHandling(modal) {
     const images = modal.querySelectorAll('.media-image');
     images.forEach(img => {
-        if (!img.complete) {
-            const container = img.closest('.slide-media');
+        const container = img.closest('.slide-media');
+        
+        // Remove any loading states immediately for already-loaded images
+        if (img.complete && img.naturalWidth > 0) {
             if (container) {
-                container.classList.add('loading');
-
-                img.onload = function () {
-                    container.classList.remove('loading');
-                    handleImageResize();
-                };
-
-                img.onerror = function () {
-                    container.classList.remove('loading');
-                    container.classList.add('error');
-                    container.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Failed to load image</p>
-                    `;
-                };
+                container.classList.remove('loading');
             }
+            img.classList.remove('loading');
+            // Remove any orphaned loading spinners
+            const spinners = container?.querySelectorAll('.image-loading');
+            spinners?.forEach(spinner => spinner.remove());
+            return;
+        }
+        
+        // Only set up loading logic for images that aren't loaded yet
+        if (!img.complete && container) {
+            container.classList.add('loading');
+
+            img.onload = function () {
+                container.classList.remove('loading');
+                img.classList.remove('loading');
+                handleImageResize();
+            };
+
+            img.onerror = function () {
+                container.classList.remove('loading');
+                container.classList.add('error');
+                container.innerHTML = `
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Failed to load image</p>
+                `;
+            };
         }
     });
 }
