@@ -208,6 +208,22 @@
                 </div>
             </div>
 
+            <!-- Shinobi Survivors Game -->
+            <div class="project-card" data-category="tech">
+                <div class="project-image">
+                    <img src="./assets/projects/shinobi/gameStart.png" alt="Shinobi Survivors"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmY0NTQ1Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TaGlub2JpIFN1cnZpdm9yczwvdGV4dD48L3N2Zz4='">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Shinobi Survivors</h3>
+                    <p class="project-description">2D survival game built with Phaser.js featuring state machine AI, wave-based combat, and progressive ability unlocks. Clean OOP architecture with intelligent enemy behaviors and real-time physics.</p>
+                    <div class="btn-container">
+                        <button class="btn btn-primary learn-more-btn" data-project="shinobi">Learn More</button>
+                        <a href="https://naitikp04.github.io/FinalGame/" class="btn btn-secondary" target="_blank">Play Game</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Livance Web App -->
             <div class="project-card" data-category="tech">
                 <div class="project-image">
@@ -220,8 +236,7 @@
                         and CSS3. Features health event logging and display functionalities developed in a collaborative
                         team environment.</p>
                     <div class="btn-container">
-                        <button class="btn btn-primary learn-more-btn" data-project="livance">Learn More</button>
-                        <a href="https://devpost.com/software/livance" class="btn btn-secondary">DevPost</a>
+                        <a href="https://devpost.com/software/livance" class="btn btn-primary" target="_blank">View on DevPost</a>
                     </div>
                 </div>
             </div>
@@ -609,60 +624,6 @@
         </div>
     </div>
 
-    <!-- Livance Modal -->
-    <div id="livanceModal" class="enhanced-modal">
-        <div class="slideshow-modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Livance</h2>
-                <p>Social Health Monitoring Platform | Web Application</p>
-            </div>
-
-            <!-- Slideshow Container -->
-            <div class="slideshow-container">
-                <!-- Navigation Arrows -->
-                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-                <!-- Slide Content Area -->
-                <div class="slide-content-wrapper">
-                    <div class="slide-content active" data-slide="0">
-                        <div class="slide-media">
-                            <img src="./assets/projects/other/medium.jpg" alt="Livance Platform Overview"
-                                class="media-image">
-                        </div>
-                        <div class="slide-text">
-                            <h3>Project Overview</h3>
-                            <p>Social health monitoring platform built with Next.js, React, HTML5, and CSS3. Features
-                                health event logging and display functionalities developed collaboratively in a team
-                                environment during a hackathon.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide Indicators -->
-                <div class="slide-indicators">
-                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-                </div>
-            </div>
-
-            <!-- Technical Stack Footer -->
-            <div class="modal-footer">
-                <div class="tech-stack">
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">Team Collaboration</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- GMCC AI Assistant Modal -->
     <div id="gmccModal" class="enhanced-modal">
         <div class="slideshow-modal-content">
@@ -789,6 +750,48 @@
             </div>
         </div>
     </div>
+
+    <!-- Shinobi Survivors Modal -->
+    <div id="shinobiModal" class="enhanced-modal">
+        <div class="slideshow-modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Shinobi Survivors</h2>
+                <p>JavaScript, Phaser.js • Solo Developer</p>
+            </div>
+
+            <!-- Slideshow Container -->
+            <div class="slideshow-container">
+                <!-- Navigation Arrows -->
+                <button class="nav-arrow nav-arrow-left" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-arrow nav-arrow-right" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Slide Content Area (will be dynamically generated) -->
+                <div class="slide-content-wrapper">
+                </div>
+
+                <!-- Slide Indicators (will be dynamically generated) -->
+                <div class="slide-indicators">
+                </div>
+            </div>
+
+            <!-- Technical Stack Footer -->
+            <div class="modal-footer">
+                <div class="tech-stack">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Phaser.js</span>
+                    <span class="tech-tag">State Machines</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">Game Design</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

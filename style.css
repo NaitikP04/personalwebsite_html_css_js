@@ -994,6 +994,60 @@ nav {
     background: #357abd;
 }
 
+/* Inline Code Container (for formatted code without images) */
+.inline-code-container {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.inline-code-content {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #1e1e1e;
+    scrollbar-width: thin;
+    scrollbar-color: #4a5568 #2d3748;
+}
+
+.inline-code-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.inline-code-content::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+.inline-code-content::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 4px;
+}
+
+.inline-code-content::-webkit-scrollbar-thumb:hover {
+    background: #5a6578;
+}
+
+.inline-code-content pre {
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.inline-code-content code {
+    display: block;
+    color: #d4d4d4;
+    white-space: pre;
+    tab-size: 4;
+}
+
 /* Syntax highlighting enhancements */
 .code-highlight {
     position: relative;

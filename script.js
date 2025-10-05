@@ -154,42 +154,6 @@ const projectsData = {
             demo: 'https://echolanegames.itch.io/zdoc'
         }
     },
-    livance: {
-        projectId: 'livance',
-        title: 'Livance',
-        subtitle: 'Healthcare Technology Platform',
-        overview: 'A healthcare technology platform designed to improve patient care coordination and medical data management.',
-        techStack: ['Web Development', 'Database Design', 'Healthcare Tech', 'Team Collaboration'],
-        slides: [
-            {
-                id: 'overview',
-                type: 'image',
-                media: './assets/projects/other/medium.jpg',
-                title: 'Platform Overview',
-                description: 'Livance is a comprehensive healthcare technology platform designed to streamline patient care and improve medical workflows.',
-                caption: 'Main dashboard interface showing patient management features'
-            },
-            {
-                id: 'features',
-                type: 'image',
-                media: './assets/projects/other/medium.jpg',
-                title: 'Core Features',
-                description: 'Implemented key features including patient tracking, appointment scheduling, and secure data management.',
-                caption: 'Feature overview showing various platform capabilities'
-            },
-            {
-                id: 'architecture',
-                type: 'image',
-                media: './assets/projects/other/medium.jpg',
-                title: 'System Architecture',
-                description: 'Designed scalable system architecture supporting secure healthcare data management and compliance requirements.',
-                caption: 'Technical architecture diagram showing system components'
-            }
-        ],
-        externalLinks: {
-            demo: 'https://devpost.com/software/livance'
-        }
-    },
     gmcc: {
         projectId: 'gmcc',
         title: 'AI Business Assistant',
@@ -247,6 +211,277 @@ const projectsData = {
             }
         ],
         externalLinks: {}
+    },
+    shinobi: {
+        projectId: 'shinobi',
+        title: 'Shinobi Survivors',
+        subtitle: 'JavaScript, Phaser.js • Solo Developer',
+        overview: 'A 2D survival game featuring state machine AI, wave-based combat, and progressive ability unlocks. Built with clean OOP architecture and real-time physics.',
+        techStack: ['JavaScript', 'Phaser.js', 'State Machines', 'OOP', 'Game Design'],
+        slides: [
+            {
+                id: 'overview',
+                type: 'image',
+                media: './assets/projects/shinobi/shinobiGameplay.png',
+                title: 'Game Overview',
+                description: 'A pixel-art roguelike featuring state machine AI, wave-based combat, and progressive ability unlocks. Navigate through a dungeon, collect power-ups, and defeat the Assassin Boss.',
+                caption: 'Shinobi Survivors - 2D action roguelike built with Phaser.js'
+            },
+            {
+                id: 'architecture',
+                type: 'code-inline',
+                title: 'State Machine Architecture',
+                description: 'Implemented finite state machine pattern for clean state transitions. Each entity uses polymorphic state classes, ensuring maintainable and extensible code.',
+                codeContent: `// State Machine Implementation
+class Player extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y, texture, frame) {
+        super(scene, x, y, texture, frame);
+        
+        // Initialize state machine managing player
+        this.stateMachine = new StateMachine('idle', {
+            idle: new IdleState(),
+            move: new MoveState(),
+            swing: new SwingState(),
+            dash: new DashState(),
+            shoot: new ShootState(),
+            revive: new ReviveState()
+        }, [scene, this]);
+    }
+
+    update(time, delta) {
+        this.stateMachine.step(); // Process current state
+        this.updateHealthBar();
+    }
+}
+
+// Polymorphic State Classes
+class IdleState extends State {
+    execute(scene, player) {
+        const { space, shift, c } = scene.keys;
+        
+        if (Phaser.Input.Keyboard.JustDown(space)) {
+            this.stateMachine.transition('swing');
+        }
+        if (player.canDash && Phaser.Input.Keyboard.JustDown(shift)) {
+            this.stateMachine.transition('dash');
+        }
+        if (player.canUseShuriken && Phaser.Input.Keyboard.JustDown(c)) {
+            this.stateMachine.transition('shoot');
+        }
+    }
+}`,
+                codeLanguage: 'javascript',
+                caption: 'Clean state management with modular architecture'
+            },
+            {
+                id: 'enemy-ai',
+                type: 'code-inline',
+                title: 'Intelligent Enemy AI',
+                description: 'Each enemy type features unique AI patterns: Bats maintain distance and fire projectiles, Ghosts apply speed debuffs, Spiders use charge mechanics with pathfinding.',
+                codeContent: `// Bat Enemy - Ranged Combat AI
+class Bat extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y) {
+        super(scene, x, y, 'bat');
+        this.hp = 10;
+        this.attackRange = 250;
+        this.attackCooldown = 3500;
+        this.projectileSpeed = 200;
+        
+        // State machine for AI behavior
+        this.stateMachine = new StateMachine('idle', {
+            idle: new BatIdleState(),
+            chase: new BatChaseState(),
+            attack: new BatAttackState(),
+        }, [scene, this]);
+    }
+
+    shootProjectile() {
+        const player = this.scene.player;
+        if (!player || !this.canShoot) return;
+
+        this.canShoot = false;
+        const projectile = this.scene.physics.add.sprite(
+            this.x, this.y, 'batAttack1'
+        );
+        
+        // Physics-based targeting
+        this.scene.physics.moveToObject(
+            projectile, player, this.projectileSpeed
+        );
+        
+        // Collision detection with player
+        this.scene.physics.add.collider(player, projectile, 
+            (player, projectile) => {
+                player.takeDamage(10);
+                projectile.destroy();
+            }
+        );
+    }
+}
+
+// Spider Enemy - Aggressive Charging
+class SpiderChargeState extends State {
+    enter(scene, spider) {
+        const player = scene.player;
+        spider.isCharging = true;
+        // Fast charge at 250 speed
+        scene.physics.moveToObject(spider, player, spider.chargeSpeed);
+    }
+
+    execute(scene, spider) {
+        const distance = Phaser.Math.Distance.Between(
+            spider.x, spider.y, 
+            scene.player.x, scene.player.y
+        );
+
+        if (distance < 5) {
+            scene.player.takeDamage(10);
+            this.stateMachine.transition('return');
+        }
+    }
+}`,
+                codeLanguage: 'javascript',
+                caption: 'Dynamic AI behaviors with pathfinding and cooldown management'
+            },
+            {
+                id: 'combat',
+                type: 'code-inline',
+                title: 'Combat System & Projectile Physics',
+                description: 'Physics-based combat with upgradeable projectiles featuring piercing mechanics, precise hitbox collision detection, and dynamic damage calculation.',
+                codeContent: `// Shuriken Projectile System
+class Shuriken extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y, texture, damage, piercing, velocity) {
+        super(scene, x, y, texture);
+        
+        this.damage = damage;      // Base damage
+        this.piercing = piercing;  // Can hit multiple enemies
+        this.setVelocity(velocity.x, velocity.y);
+        
+        // Collision with all enemy types
+        scene.physics.add.collider(this, scene.bats, 
+            this.handleCollision, null, this);
+        scene.physics.add.collider(this, scene.ghosts, 
+            this.handleCollision, null, this);
+        scene.physics.add.collider(this, scene.spiders, 
+            this.handleCollision, null, this);
+        scene.physics.add.collider(this, scene.assassinBoss, 
+            this.handleCollision, null, this);
+    }
+
+    handleCollision(shuriken, enemy) {
+        enemy.takeDamage(this.damage);
+        shuriken.piercing--;
+        
+        if (shuriken.piercing <= 0) {
+            shuriken.destroy();
+        } else {
+            // Maintain velocity after piercing
+            const direction = new Phaser.Math.Vector2(
+                shuriken.body.velocity.x, 
+                shuriken.body.velocity.y
+            ).normalize();
+            shuriken.setVelocity(direction.x * 300, direction.y * 300);
+        }
+    }
+}
+
+// Player Shooting System
+shootShuriken() {
+    const shurikenType = this.hasUpgradedShuriken ? 
+        'shurikenUpgraded' : 'shurikenBasic';
+    const damage = this.hasUpgradedShuriken ? 15 : 5;
+    const piercing = this.hasUpgradedShuriken ? 2 : 1; // Piercing mechanic
+    
+    // Mouse or keyboard direction
+    let velocity = this.usingMouse ? 
+        this.getMouseDirection() : 
+        this.getKeyboardDirection();
+    
+    velocity.normalize().scale(300);
+    
+    new Shuriken(this.scene, this.x, this.y, 
+        shurikenType, damage, piercing, velocity, this.direction);
+}`,
+                codeLanguage: 'javascript',
+                caption: 'Real-time combat with upgradeable abilities and piercing mechanics'
+            },
+            {
+                id: 'boss',
+                type: 'code-inline',
+                title: 'Boss Battle Mechanics',
+                description: 'Climactic boss battle featuring stun mechanics with cooldowns, telegraphed attacks, state-based AI, and visual feedback systems.',
+                codeContent: `// Assassin Boss - Multi-Phase Combat
+class AssassinBoss extends Phaser.Physics.Arcade.Sprite {
+    constructor(scene, x, y, texture, frame) {
+        super(scene, x, y, texture, frame);
+        
+        this.hp = 450;
+        this.attackPower = 60;
+        this.stunDuration = 1500;
+        this.stunCooldown = 15000;  // 15 second cooldown
+        this.canBeStunned = true;
+        this.setTint(0x00ff00);     // Green tint when vulnerable
+        
+        // Boss state machine
+        this.stateMachine = new StateMachine('idle', {
+            idle: new BossIdleState(),
+            chase: new BossChaseState(),
+            attack: new BossAttackState(),
+            stun: new BossStunState(),
+            death: new BossDeathState(),
+        }, [scene, this]);
+    }
+
+    takeDamage(amount) {
+        if (!this.isHurt) {
+            this.hp -= amount;
+            this.scene.sound.play("bossHit");
+            this.isHurt = true;
+            this.setTint(0xff0000); // Flash red on hit
+            
+            // Check for stun window
+            if (!this.isStunned && this.canBeStunned) {
+                this.stateMachine.transition('stun');
+                this.scene.sound.play("bossStun");
+                this.canBeStunned = false;
+                
+                // Cooldown before next stun
+                this.scene.time.delayedCall(this.stunCooldown, () => {
+                    this.canBeStunned = true;
+                    this.setTint(0x00ff00); // Green = vulnerable
+                });
+            }
+            
+            if (this.hp <= 0) {
+                this.stateMachine.transition('death');
+            }
+        }
+    }
+}
+
+// Boss Stun State
+class BossStunState extends State {
+    enter(scene, boss) {
+        boss.setVelocity(0);
+        boss.isStunned = true;
+        boss.setTint(0xaaaaaa);  // Gray tint during stun
+        boss.anims.play('assassinStun');
+
+        scene.time.delayedCall(boss.stunDuration, () => {
+            boss.clearTint();
+            boss.isStunned = false;
+            this.stateMachine.transition('chase');
+        });
+    }
+}`,
+                codeLanguage: 'javascript',
+                caption: 'Advanced boss mechanics with timing windows and visual feedback'
+            }
+        ],
+        externalLinks: {
+            demo: 'https://naitikp04.github.io/FinalGame/',
+            github: 'https://github.com/NaitikP04/FinalGame'
+        }
     }
 };
 
@@ -269,11 +504,11 @@ function validateProjectData(projectData) {
             if (!slide.id) {
                 errors.push(`Slide ${index}: Missing id`);
             }
-            if (!['image', 'video', 'youtube', 'code', 'construction'].includes(slide.type)) {
-                errors.push(`Slide ${index}: Invalid type (must be image, video, youtube, code, or construction)`);
+            if (!['image', 'video', 'youtube', 'code', 'code-inline', 'construction'].includes(slide.type)) {
+                errors.push(`Slide ${index}: Invalid type (must be image, video, youtube, code, code-inline, or construction)`);
             }
-            // Media is not required for construction slides
-            if (!slide.media && slide.type !== 'construction') {
+            // Media is not required for construction or code-inline slides
+            if (!slide.media && slide.type !== 'construction' && slide.type !== 'code-inline') {
                 errors.push(`Slide ${index}: Missing media path`);
             }
             if (!slide.title) {
@@ -657,6 +892,13 @@ function createSlideElement(slideData, index) {
                 slideData.media,
                 'code',
                 slideData.caption || slideData.title
+            );
+            break;
+        case 'code-inline':
+            mediaElement = createInlineCodeElement(
+                slideData.codeContent,
+                slideData.codeLanguage || 'javascript',
+                slideData.title
             );
             break;
         case 'construction':
@@ -1577,6 +1819,56 @@ function createConstructionElement() {
         </div>
     `;
     
+    return container;
+}
+
+// Create inline code element (for formatted code without images)
+function createInlineCodeElement(codeContent, language = 'javascript', title = 'Code') {
+    const container = document.createElement('div');
+    container.className = 'inline-code-container';
+
+    // Code header
+    const header = document.createElement('div');
+    header.className = 'code-header';
+
+    const languageSpan = document.createElement('span');
+    languageSpan.className = 'code-language';
+    languageSpan.textContent = language;
+
+    const actions = document.createElement('div');
+    actions.className = 'code-actions';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'code-action-btn';
+    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+    copyBtn.title = 'Copy code';
+    copyBtn.onclick = () => {
+        navigator.clipboard.writeText(codeContent).then(() => {
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+            }, 2000);
+        });
+    };
+
+    actions.appendChild(copyBtn);
+    header.appendChild(languageSpan);
+    header.appendChild(actions);
+    container.appendChild(header);
+
+    // Code content with syntax highlighting
+    const content = document.createElement('div');
+    content.className = 'inline-code-content';
+
+    const pre = document.createElement('pre');
+    const code = document.createElement('code');
+    code.className = `language-${language}`;
+    code.textContent = codeContent;
+
+    pre.appendChild(code);
+    content.appendChild(pre);
+    container.appendChild(content);
+
     return container;
 }
 
