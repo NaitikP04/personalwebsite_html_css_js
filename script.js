@@ -16,45 +16,11 @@ const projectsData = {
                 caption: 'Hero screenshot showcasing the game\'s visual style'
             },
             {
-                id: 'abilities',
-                type: 'video',
-                media: './assets/projects/tacit/tacit-abilities-demo.mp4',
-                thumbnail: './assets/projects/tacit/tacit-abilities-poster.jpg',
-                title: 'Spellcasting System',
-                description: 'Implemented a real-time spellcasting framework supporting 30+ unique abilities with smooth networking integration.',
-                caption: 'Demonstration of various magical abilities and combat mechanics'
-            },
-            {
-                id: 'combat',
-                type: 'image',
-                media: './assets/projects/tacit/tacit-combat-screenshot.png',
-                title: 'Combat Mechanics',
-                description: 'Designed responsive combat systems with precise hit detection and visual feedback for multiplayer scenarios.',
-                caption: 'In-game combat showcasing particle effects and UI elements'
-            },
-            {
-                id: 'networking',
-                type: 'code',
-                media: './assets/projects/tacit/tacit-networking-code.png',
-                title: 'Networking Architecture',
-                description: 'Architected replication pipeline that reduced average roundtrip lag by 22% through optimized data synchronization.',
-                caption: 'C++ networking code showing replication logic'
-            },
-            {
-                id: 'optimization',
-                type: 'code',
-                media: './assets/projects/tacit/tacit-optimization-code.png',
-                title: 'Performance Optimization',
-                description: 'Implemented performance optimizations including object pooling and efficient memory management for smooth 4-player gameplay.',
-                caption: 'Performance optimization code demonstrating memory management techniques'
-            },
-            {
-                id: 'development',
-                type: 'image',
-                media: './assets/projects/tacit/tacit-development-process.png',
-                title: 'Development Process',
-                description: 'Collaborative development workflow using Agile methodologies and continuous integration practices.',
-                caption: 'Development timeline and milestone tracking'
+                id: 'construction',
+                type: 'construction',
+                title: 'More Content Coming Soon',
+                description: '🚧 Additional screenshots and demos are under construction. Check back soon for spellcasting systems, combat mechanics, networking architecture, and more!',
+                caption: 'More detailed project information coming soon'
             }
         ],
         externalLinks: {
@@ -77,37 +43,21 @@ const projectsData = {
                 caption: 'Main gameplay screenshot showing arena-style combat'
             },
             {
-                id: 'weapons',
-                type: 'video',
-                media: './assets/projects/shooter/shooter-weapons-demo.mp4',
-                thumbnail: './assets/projects/shooter/shooter-weapons-poster.jpg',
-                title: 'Weapon Systems',
-                description: 'Implemented diverse weapon spawner system with unique mechanics for each weapon type, balancing gameplay and strategy.',
-                caption: 'Demonstration of various weapons and their unique mechanics'
+                id: 'trailer',
+                type: 'youtube',
+                media: 'https://youtu.be/S4y9hu_yzxk',
+                videoId: 'S4y9hu_yzxk',
+                thumbnail: './assets/projects/shooter/shooter.jpg',
+                title: 'Gameplay Trailer',
+                description: 'Watch the full gameplay trailer showcasing multiplayer action, weapon systems, and enemy AI in action.',
+                caption: 'Official gameplay trailer featuring combat and multiplayer features'
             },
             {
-                id: 'ai',
-                type: 'image',
-                media: './assets/projects/shooter/shooter-ai-demo.png',
-                title: 'Enemy AI Systems',
-                description: 'Developed intelligent enemy AI with pathfinding, combat behaviors, and dynamic difficulty adjustment.',
-                caption: 'AI behavior demonstration showing enemy movement patterns'
-            },
-            {
-                id: 'networking',
-                type: 'code',
-                media: './assets/projects/shooter/shooter-networking-code.png',
-                title: 'Multiplayer Networking',
-                description: 'Built robust networking architecture supporting real-time multiplayer gameplay with lag compensation.',
-                caption: 'C# networking code showing client-server synchronization'
-            },
-            {
-                id: 'playtesting',
-                type: 'image',
-                media: './assets/projects/shooter/shooter-playtesting-results.png',
-                title: 'Playtesting Results',
-                description: 'Conducted 30+ playtests with an average rating of 8.3/10, incorporating feedback for gameplay improvements.',
-                caption: 'Playtesting feedback analysis and iteration results'
+                id: 'construction',
+                type: 'construction',
+                title: 'More Content Coming Soon',
+                description: '🚧 Additional screenshots and demos are under construction. Check back soon for weapon systems, AI demonstrations, networking details, and playtesting results!',
+                caption: 'More detailed project information coming soon'
             }
         ],
         externalLinks: {
@@ -142,7 +92,7 @@ const projectsData = {
             {
                 id: 'inventory',
                 type: 'code',
-                media: './assets/projects/automanora/automanora-inventory-code.png',
+                media: './assets/projects/automanora/automanora-inventory-code.jpeg',
                 title: 'Inventory System',
                 description: 'Implemented flexible inventory and battery management systems supporting dynamic gameplay mechanics.',
                 caption: 'C# code showing inventory management and battery system implementation'
@@ -319,10 +269,11 @@ function validateProjectData(projectData) {
             if (!slide.id) {
                 errors.push(`Slide ${index}: Missing id`);
             }
-            if (!['image', 'video', 'youtube', 'code'].includes(slide.type)) {
-                errors.push(`Slide ${index}: Invalid type (must be image, video, youtube, or code)`);
+            if (!['image', 'video', 'youtube', 'code', 'construction'].includes(slide.type)) {
+                errors.push(`Slide ${index}: Invalid type (must be image, video, youtube, code, or construction)`);
             }
-            if (!slide.media) {
+            // Media is not required for construction slides
+            if (!slide.media && slide.type !== 'construction') {
                 errors.push(`Slide ${index}: Missing media path`);
             }
             if (!slide.title) {
@@ -707,6 +658,9 @@ function createSlideElement(slideData, index) {
                 'code',
                 slideData.caption || slideData.title
             );
+            break;
+        case 'construction':
+            mediaElement = createConstructionElement();
             break;
         default:
             console.warn(`Unknown slide type: ${slideData.type}`);
@@ -1431,19 +1385,19 @@ function addCodeZoomControls(container, img) {
     zoomInBtn.className = 'zoom-btn';
     zoomInBtn.innerHTML = '<i class="fas fa-plus"></i>';
     zoomInBtn.title = 'Zoom in';
-    zoomInBtn.onclick = () => zoomCode(img, 1.2);
+    zoomInBtn.onclick = () => zoomCode(container, img, 1.2);
 
     const zoomOutBtn = document.createElement('button');
     zoomOutBtn.className = 'zoom-btn';
     zoomOutBtn.innerHTML = '<i class="fas fa-minus"></i>';
     zoomOutBtn.title = 'Zoom out';
-    zoomOutBtn.onclick = () => zoomCode(img, 0.8);
+    zoomOutBtn.onclick = () => zoomCode(container, img, 0.8);
 
     const resetBtn = document.createElement('button');
     resetBtn.className = 'zoom-btn';
     resetBtn.innerHTML = '<i class="fas fa-undo"></i>';
-    resetBtn.title = 'Reset zoom';
-    resetBtn.onclick = () => resetCodeZoom(img);
+    resetBtn.title = 'Reset zoom and position';
+    resetBtn.onclick = () => resetCodeZoom(container, img);
 
     zoomControls.appendChild(zoomInBtn);
     zoomControls.appendChild(zoomOutBtn);
@@ -1451,20 +1405,37 @@ function addCodeZoomControls(container, img) {
 
     container.appendChild(zoomControls);
 
-    // Store zoom level
+    // Store zoom level and pan position
     img.dataset.zoomLevel = '1';
+    img.dataset.panX = '0';
+    img.dataset.panY = '0';
+    
+    // Add pan functionality
+    enableCodePanning(container, img);
 }
 
-function zoomCode(img, factor) {
+function zoomCode(container, img, factor) {
     const currentZoom = parseFloat(img.dataset.zoomLevel || '1');
     const newZoom = Math.max(0.5, Math.min(3, currentZoom * factor));
 
-    img.style.transform = `scale(${newZoom})`;
+    const panX = parseFloat(img.dataset.panX || '0');
+    const panY = parseFloat(img.dataset.panY || '0');
+
+    img.style.transform = `translate(${panX}px, ${panY}px) scale(${newZoom})`;
     img.style.transformOrigin = 'center';
     img.dataset.zoomLevel = newZoom.toString();
 
+    // Update cursor style
+    const content = container.querySelector('.code-content');
+    if (newZoom > 1) {
+        content.style.cursor = 'grab';
+        img.style.cursor = 'grab';
+    } else {
+        content.style.cursor = 'default';
+        img.style.cursor = 'default';
+    }
+
     // Update button states
-    const container = img.closest('.code-container');
     const zoomInBtn = container.querySelector('.zoom-btn:first-child');
     const zoomOutBtn = container.querySelector('.zoom-btn:nth-child(2)');
 
@@ -1472,17 +1443,141 @@ function zoomCode(img, factor) {
     zoomOutBtn.disabled = newZoom <= 0.5;
 }
 
-function resetCodeZoom(img) {
-    img.style.transform = 'scale(1)';
+function resetCodeZoom(container, img) {
+    img.style.transform = 'translate(0px, 0px) scale(1)';
     img.dataset.zoomLevel = '1';
+    img.dataset.panX = '0';
+    img.dataset.panY = '0';
+
+    // Reset cursor
+    const content = container.querySelector('.code-content');
+    content.style.cursor = 'default';
+    img.style.cursor = 'default';
 
     // Reset button states
-    const container = img.closest('.code-container');
     const zoomInBtn = container.querySelector('.zoom-btn:first-child');
     const zoomOutBtn = container.querySelector('.zoom-btn:nth-child(2)');
 
     zoomInBtn.disabled = false;
     zoomOutBtn.disabled = false;
+}
+
+// Enable click-and-drag panning for zoomed code images
+function enableCodePanning(container, img) {
+    const content = container.querySelector('.code-content');
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let currentPanX = 0;
+    let currentPanY = 0;
+
+    content.addEventListener('mousedown', (e) => {
+        const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+        
+        // Only enable panning if zoomed in
+        if (zoomLevel > 1) {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            currentPanX = parseFloat(img.dataset.panX || '0');
+            currentPanY = parseFloat(img.dataset.panY || '0');
+            
+            content.style.cursor = 'grabbing';
+            img.style.cursor = 'grabbing';
+            e.preventDefault(); // Prevent text selection
+        }
+    });
+
+    content.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        
+        const newPanX = currentPanX + deltaX;
+        const newPanY = currentPanY + deltaY;
+
+        img.dataset.panX = newPanX.toString();
+        img.dataset.panY = newPanY.toString();
+
+        const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+        img.style.transform = `translate(${newPanX}px, ${newPanY}px) scale(${zoomLevel})`;
+    });
+
+    content.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+            content.style.cursor = zoomLevel > 1 ? 'grab' : 'default';
+            img.style.cursor = zoomLevel > 1 ? 'grab' : 'default';
+        }
+    });
+
+    content.addEventListener('mouseleave', () => {
+        if (isDragging) {
+            isDragging = false;
+            const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+            content.style.cursor = zoomLevel > 1 ? 'grab' : 'default';
+            img.style.cursor = zoomLevel > 1 ? 'grab' : 'default';
+        }
+    });
+
+    // Touch support for mobile
+    content.addEventListener('touchstart', (e) => {
+        const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+        
+        if (zoomLevel > 1 && e.touches.length === 1) {
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            currentPanX = parseFloat(img.dataset.panX || '0');
+            currentPanY = parseFloat(img.dataset.panY || '0');
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    content.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length !== 1) return;
+
+        const deltaX = e.touches[0].clientX - startX;
+        const deltaY = e.touches[0].clientY - startY;
+        
+        const newPanX = currentPanX + deltaX;
+        const newPanY = currentPanY + deltaY;
+
+        img.dataset.panX = newPanX.toString();
+        img.dataset.panY = newPanY.toString();
+
+        const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
+        img.style.transform = `translate(${newPanX}px, ${newPanY}px) scale(${zoomLevel})`;
+        e.preventDefault();
+    }, { passive: false });
+
+    content.addEventListener('touchend', () => {
+        isDragging = false;
+    });
+}
+
+// Create construction/coming soon element
+function createConstructionElement() {
+    const container = document.createElement('div');
+    container.className = 'construction-container';
+    
+    container.innerHTML = `
+        <div class="construction-content">
+            <div class="construction-icon">
+                <i class="fas fa-hard-hat"></i>
+                <i class="fas fa-wrench"></i>
+            </div>
+            <h3 class="construction-title">Under Construction</h3>
+            <p class="construction-message">Additional content and screenshots coming soon!</p>
+            <div class="construction-animation">
+                <div class="construction-bar"></div>
+            </div>
+        </div>
+    `;
+    
+    return container;
 }
 
 function openCodeFullscreen(src, alt) {
