@@ -662,7 +662,7 @@ function initializeSlideshow(modal, projectId) {
             console.log(`Removing ${allSpinners.length} lingering spinners from modal`);
             allSpinners.forEach(spinner => spinner.remove());
         }
-        
+
         // Also remove loading class from all images
         const allImages = modal.querySelectorAll('.media-image');
         allImages.forEach(img => img.classList.remove('loading'));
@@ -817,7 +817,7 @@ function generateSlidesFromData(modal, projectData) {
         const existingSlides = slideshowContainer.querySelectorAll('.slide-content');
         console.log('Clearing existing slides:', existingSlides.length); // Debug log
         existingSlides.forEach(slide => slide.remove());
-        
+
         // Also clear any orphaned loading spinners
         const orphanedSpinners = slideshowContainer.querySelectorAll('.image-loading');
         orphanedSpinners.forEach(spinner => spinner.remove());
@@ -831,12 +831,12 @@ function generateSlidesFromData(modal, projectData) {
         // Generate slides from project data
         projectData.slides.forEach((slideData, index) => {
             const slideElement = createSlideElement(slideData, index);
-            
+
             // Mark first slide as active
             if (index === 0) {
                 slideElement.classList.add('active');
             }
-            
+
             slideshowContainer.appendChild(slideElement);
 
             // Create indicator
@@ -1183,7 +1183,7 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
 
     // Set src and check if image is already loaded (cached)
     img.src = src;
-    
+
     // Handle case where image is already cached and loaded
     if (img.complete && img.naturalWidth > 0) {
         // Use setTimeout to ensure the spinner exists before removing it
@@ -1191,7 +1191,7 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
             cleanupLoading();
         }, 0);
     }
-    
+
     // AGGRESSIVE FALLBACK: Remove loading spinner after 1 seconds no matter what
     setTimeout(() => {
         if (container.querySelector('.image-loading')) {
@@ -1199,7 +1199,7 @@ function createImageElement(src, alt, aspectRatio = 'auto') {
             cleanupLoading();
         }
     }, 1000);
-    
+
     container.appendChild(img);
 
     return container;
@@ -1234,7 +1234,7 @@ function initializeImageHandling(modal) {
     const images = modal.querySelectorAll('.media-image');
     images.forEach(img => {
         const container = img.closest('.slide-media');
-        
+
         // Remove any loading states immediately for already-loaded images
         if (img.complete && img.naturalWidth > 0) {
             if (container) {
@@ -1246,7 +1246,7 @@ function initializeImageHandling(modal) {
             spinners?.forEach(spinner => spinner.remove());
             return;
         }
-        
+
         // Only set up loading logic for images that aren't loaded yet
         if (!img.complete && container) {
             container.classList.add('loading');
@@ -1651,7 +1651,7 @@ function addCodeZoomControls(container, img) {
     img.dataset.zoomLevel = '1';
     img.dataset.panX = '0';
     img.dataset.panY = '0';
-    
+
     // Add pan functionality
     enableCodePanning(container, img);
 }
@@ -1715,7 +1715,7 @@ function enableCodePanning(container, img) {
 
     content.addEventListener('mousedown', (e) => {
         const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
-        
+
         // Only enable panning if zoomed in
         if (zoomLevel > 1) {
             isDragging = true;
@@ -1723,7 +1723,7 @@ function enableCodePanning(container, img) {
             startY = e.clientY;
             currentPanX = parseFloat(img.dataset.panX || '0');
             currentPanY = parseFloat(img.dataset.panY || '0');
-            
+
             content.style.cursor = 'grabbing';
             img.style.cursor = 'grabbing';
             e.preventDefault(); // Prevent text selection
@@ -1735,7 +1735,7 @@ function enableCodePanning(container, img) {
 
         const deltaX = e.clientX - startX;
         const deltaY = e.clientY - startY;
-        
+
         const newPanX = currentPanX + deltaX;
         const newPanY = currentPanY + deltaY;
 
@@ -1767,7 +1767,7 @@ function enableCodePanning(container, img) {
     // Touch support for mobile
     content.addEventListener('touchstart', (e) => {
         const zoomLevel = parseFloat(img.dataset.zoomLevel || '1');
-        
+
         if (zoomLevel > 1 && e.touches.length === 1) {
             isDragging = true;
             startX = e.touches[0].clientX;
@@ -1783,7 +1783,7 @@ function enableCodePanning(container, img) {
 
         const deltaX = e.touches[0].clientX - startX;
         const deltaY = e.touches[0].clientY - startY;
-        
+
         const newPanX = currentPanX + deltaX;
         const newPanY = currentPanY + deltaY;
 
@@ -1804,7 +1804,7 @@ function enableCodePanning(container, img) {
 function createConstructionElement() {
     const container = document.createElement('div');
     container.className = 'construction-container';
-    
+
     container.innerHTML = `
         <div class="construction-content">
             <div class="construction-icon">
@@ -1818,7 +1818,7 @@ function createConstructionElement() {
             </div>
         </div>
     `;
-    
+
     return container;
 }
 
